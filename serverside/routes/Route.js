@@ -1,7 +1,6 @@
 import express from 'express';
-import addCollege, { addTeacher } from '../controller/collegeController.js';
-import addCollegeName from '../controller/collegeNamesController.js';
-import addUser from '../controller/usercontroller.js'
+import addCollegeName, { getCollegeName } from '../controller/collegeNamesController.js';
+
 
 
 // import cloudinary from 'cloudinary';
@@ -19,7 +18,7 @@ const route = express.Router();
 
 
 route.post('/addCollegeName',addCollegeName);
-
+route.get('/getCollege/:name',getCollegeName)
 
 
 

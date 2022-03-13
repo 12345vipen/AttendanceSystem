@@ -19,24 +19,27 @@ const addCollegeName = async function (req, res) {
     }
     
 }
-// const addTeacher = async function (req, res) {
-//     // Validate request parameters, queries using express-validator
-//     const findcollege =await college.findOneAndUpdate({collegeName:'vipen'},
-//     {
-//         $push:{
-//             teachers:{
-//                 teachername:'panda',
-//                 subject:{
-//                     name: "Scneien"
-//                 }
-//             }
 
-//         }
-
-//     });
+const getCollegeName = async function (req, res) {
+    // Validate request parameters, queries using express-validator
     
+    try {
+        const name = req.params.name
+        const alreadyExists = await collegeName.findOne({name:name});
+        console.log(req.body)
+        console.log(alreadyExists)
+        if(!alreadyExists){
+           res.send('College Does not exits');
+        }else{
+            res.send(alreadyExists)
+        }
+        
+    } catch (error) {
+        res.status(400);
+        res.send('Something Went Wrong')
+    }
+    
+}
 
-// }
-
-// export {addTeacher};
+export {getCollegeName};
 export default addCollegeName;

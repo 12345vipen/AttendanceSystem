@@ -1,4 +1,11 @@
 .addcollegenames-container{
-    background-color: wheat;
-    
+   
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 6%;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 }

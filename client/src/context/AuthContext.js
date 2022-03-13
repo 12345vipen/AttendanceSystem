@@ -1,36 +1,17 @@
-import React, { useContext, useState } from "react"
+import React,{ createContext,useState} from 'react'
 
+export const AccountContext = createContext(null);
 
-const AuthContext = React.createContext()
-const collegeUpdateContext = React.createContext()
-
-export function useAuth(){
-    return useContext(AuthContext)
-}
-export function useCollegeUpdate(){
-    return useContext(collegeUpdateContext)
-}
-
-export function AuthProvider({ children }) {
-  const [currentCollege, setcurrentCollege] = useState('')
-  
-
-  
-  function createCollege(name) {
-    setcurrentCollege(name)
-    return currentCollege
-  }
-
-  const value = {
-    currentCollege,
-  }
-
-  return (
-    <AuthContext.Provider value={value}>
-        <collegeUpdateContext.Provider value={createCollege}>
-        {children}
-        </collegeUpdateContext.Provider>
+const AccountProvider = ({children}) => {
     
-    </AuthContext.Provider>
-  )
+    const [checkCollegeNameChanged, setCheckCollegeNameChanged] = useState(false);
+    return (
+        <div>
+            <AccountContext.Provider value={{setCheckCollegeNameChanged,checkCollegeNameChanged}}>
+                {children}
+            </AccountContext.Provider>
+        </div>
+    )
 }
+
+export default AccountProvider
