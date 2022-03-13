@@ -1,5 +1,6 @@
 import express from 'express';
 import addCollege, { addTeacher } from '../controller/collegeController.js';
+import addCollegeName from '../controller/collegeNamesController.js';
 import addUser from '../controller/usercontroller.js'
 
 
@@ -16,11 +17,9 @@ import addUser from '../controller/usercontroller.js'
 const route = express.Router();
 
 
-route.post('/add', addUser);
 
-route.post('/addCollege',addCollege);
+route.post('/addCollegeName',addCollegeName);
 
-route.get('/addTeacher',addTeacher);
 
 
 
