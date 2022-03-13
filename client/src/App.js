@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './utils/Navbar';
 import AccountProvider, {AuthProvider} from './context/AuthContext';
 import { AdminDashboard } from './screens/admin/AdminDashboard';
+import Login from './Authentication/Login';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={AddCollegeNames} />
               <Route exact path="/AdminDashboard" component={AdminDashboard} />
+              <Route exact path='/login' component={Login} />
             </Switch>
      
         </Router>

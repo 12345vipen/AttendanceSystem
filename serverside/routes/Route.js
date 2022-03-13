@@ -1,6 +1,6 @@
 import express from 'express';
 import addCollegeName, { getCollegeName } from '../controller/collegeNamesController.js';
-
+import  { login } from '../controller/usercontroller.js'
 
 
 // import cloudinary from 'cloudinary';
@@ -16,13 +16,12 @@ import addCollegeName, { getCollegeName } from '../controller/collegeNamesContro
 const route = express.Router();
 
 
-
 route.post('/addCollegeName',addCollegeName);
 route.get('/getCollege/:name',getCollegeName)
 
 
 
-
+route.post('/login',login);
 
 
 
